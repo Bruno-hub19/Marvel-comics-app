@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, Image } from 'react-native';
+import { FlatList, Image, View, ActivityIndicator } from 'react-native';
 
 import marvelLogo from '../../assets/marvel-logo.png';
 import { api } from '../../services/api';
@@ -37,6 +37,7 @@ type HeroComicsResponse = Omit<HeroComicsState, 'price'> & {
 
 const Comics: React.FC<RouteProps> = ({ route }) => {
   const [heroComics, setHeroComics] = useState<HeroComicsState[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     api
@@ -61,8 +62,27 @@ const Comics: React.FC<RouteProps> = ({ route }) => {
         }));
 
         setHeroComics(formattedComic);
+
+        setTimeout(() => {
+          setLoading(false);
+        }, 700);
       });
   }, [route.params.hero_id]);
+
+  if (loading) {
+    return (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: '#000',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <ActivityIndicator size="large" color="#8f3335" />
+      </View>
+    );
+  }
 
   return (
     <Container>
