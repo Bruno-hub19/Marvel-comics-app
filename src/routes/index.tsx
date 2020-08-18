@@ -1,6 +1,9 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from '@react-navigation/stack';
 
 import { Description } from '../pages/Onboarding/Description';
 import { FindHero } from '../pages/Onboarding/FindHero';
@@ -36,9 +39,26 @@ const OnboardingScreens: React.FC = () => {
 
 const Routes: React.FC = () => {
   return (
-    <AppStack.Navigator screenOptions={{ headerShown: false }}>
-      <AppStack.Screen name="Onboarding" component={OnboardingScreens} />
-      <AppStack.Screen name="ComicsScreen" component={Comics} />
+    <AppStack.Navigator
+      screenOptions={{
+        ...TransitionPresets.SlideFromRightIOS,
+      }}
+    >
+      <AppStack.Screen
+        name="Onboarding"
+        component={OnboardingScreens}
+        options={{ headerShown: false }}
+      />
+      <AppStack.Screen
+        name="ComicsScreen"
+        component={Comics}
+        options={{
+          headerTitle: '',
+          headerTintColor: '#fffde4',
+          headerTransparent: true,
+          headerStyle: { borderBottomWidth: 0 },
+        }}
+      />
     </AppStack.Navigator>
   );
 };
