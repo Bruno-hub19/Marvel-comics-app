@@ -1,7 +1,8 @@
 import React, { useRef, useCallback } from 'react';
-import { Image } from 'react-native';
+import { Image, Alert } from 'react-native';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/mobile';
+import { env } from '../../../../secret.config.js';
 
 import { api } from '../../../services/api';
 import { Input } from '../../../components/Input';
@@ -29,8 +30,8 @@ const FindHero: React.FC = ({ navigation }: any) => {
           params: {
             name: data.hero_name,
             ts: '1',
-            apikey: '374d072e930a8a8d1e11aa1ef651c693',
-            hash: '5ca7dfe0900ced627d239fa684227b4a',
+            apikey: env.MARVEL_API_KEY,
+            hash: env.MARVEL_HASH,
           },
         });
 
@@ -42,7 +43,7 @@ const FindHero: React.FC = ({ navigation }: any) => {
 
         reset();
       } catch (err) {
-        console.log('[REQUEST_ERROR]: ', err);
+        Alert.alert('Error', 'Check the data provided');
       }
     },
     [navigation],

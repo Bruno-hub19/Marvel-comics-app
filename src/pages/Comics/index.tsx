@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, Image, View, ActivityIndicator } from 'react-native';
+import { FlatList, Image, View, ActivityIndicator, Alert } from 'react-native';
+import { env } from '../../../secret.config.js';
 
 import marvelLogo from '../../assets/marvel-logo.png';
 import { api } from '../../services/api';
+
 import {
   Container,
   Header,
@@ -44,8 +46,8 @@ const Comics: React.FC<RouteProps> = ({ route }) => {
       .get(`/characters/${route.params.hero_id}/comics`, {
         params: {
           ts: '1',
-          apikey: '374d072e930a8a8d1e11aa1ef651c693',
-          hash: '5ca7dfe0900ced627d239fa684227b4a',
+          apikey: env.MARVEL_API_KEY,
+          hash: env.MARVEL_HASH,
         },
       })
       .then(response => {
@@ -66,7 +68,8 @@ const Comics: React.FC<RouteProps> = ({ route }) => {
         setTimeout(() => {
           setLoading(false);
         }, 700);
-      });
+      })
+      .catch(err => Alert.alert('Error', 'Error listing comics'));
   }, [route.params.hero_id]);
 
   if (loading) {
