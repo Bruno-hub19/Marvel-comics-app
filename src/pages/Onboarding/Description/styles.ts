@@ -5,19 +5,18 @@ export const Container = styled.View`
   background: #282828;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  /* padding: 0 20px; */
 `;
 
 export const DescriptionContainer = styled.View`
-  height: 250px;
+  height: 200px;
   position: absolute;
-  bottom: 20px;
+  bottom: 0px;
   border-radius: 5px;
   justify-content: center;
   align-items: center;
-  background: #891134;
+  background: rgba(51, 34, 27, 0.7);
   padding: 0 30px;
-  opacity: 0.8;
 `;
 
 export const DescriptionText = styled.Text`
@@ -33,7 +32,7 @@ export const NextButton = styled.TouchableOpacity`
   height: 60px;
   margin-top: 20px;
   border-radius: 5px;
-  background: #fffde4;
+  background: #8f3335;
   justify-content: center;
   align-items: center;
 `;
@@ -43,5 +42,5 @@ export const NextButtonText = styled.Text`
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #891134;
+  color: #fffde4;
 `;

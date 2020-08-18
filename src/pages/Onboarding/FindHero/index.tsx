@@ -3,6 +3,7 @@ import { Image } from 'react-native';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/mobile';
 
+import { api } from '../../../services/api';
 import { Input } from '../../../components/Input';
 import marvelLogo from '../../../assets/marvel-logo.png';
 
@@ -14,14 +15,38 @@ import {
   FindButtonText,
 } from './styles';
 
-const FindHero: React.FC = () => {
+interface FormData {
+  hero_name: string;
+}
+
+const FindHero: React.FC = ({ navigation }: any) => {
   const formRef = useRef<FormHandles>(null);
 
-  const handleSubmit = useCallback((data, { reset }) => {
-    // console.log(data);
+  const handleSubmit = useCallback(
+    async (data: FormData, { reset }) => {
+      try {
+        const response = await api.get('/characters', {
+          params: {
+            name: data.hero_name,
+            ts: '1',
+            apikey: '374d072e930a8a8d1e11aa1ef651c693',
+            hash: '5ca7dfe0900ced627d239fa684227b4a',
+          },
+        });
 
-    reset();
-  }, []);
+        const dataForm = response.data;
+
+        navigation.navigate('ComicsScreen', {
+          hero_id: dataForm.data.results[0].id,
+        });
+
+        reset();
+      } catch (err) {
+        console.log('[REQUEST_ERROR]: ', err);
+      }
+    },
+    [navigation],
+  );
 
   return (
     <Container>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from 'react-native';
 
-import marvelBack1 from '../../../assets/marvel-background-1.png';
+import marvelBack1 from '../../../assets/marvel-bakground-3.png';
 
 import {
   Container,
@@ -20,7 +20,9 @@ const Description: React.FC = ({ navigation }: any) => {
       />
 
       <DescriptionContainer>
-        <DescriptionText>Discover your favorites heroes of MCU</DescriptionText>
+        <DescriptionText>
+          Discover your favorite hero comics on the MCU
+        </DescriptionText>
 
         <NextButton onPress={() => navigation.navigate('FindHero')}>
           <NextButtonText>next</NextButtonText>

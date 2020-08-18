@@ -29,7 +29,7 @@ export const FindButton = styled.TouchableOpacity`
   height: 60px;
   margin-top: 10px;
   border-radius: 5px;
-  background: #891134;
+  background: #8f3335;
   justify-content: center;
   align-items: center;
 `;
