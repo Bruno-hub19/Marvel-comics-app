@@ -6,10 +6,10 @@
 
 <div align="center">
 
-![Badge](https://img.shields.io/github/languages/top/Bruno-hub19/Marvel-comics-app?color=29C872&logo=typescript&logoColor=blue&style=for-the-badge)
-![Badge](https://img.shields.io/github/repo-size/Bruno-hub19/Marvel-comics-app?color=29C872&logo=github&logoColor=black&style=for-the-badge)
-![Badge](https://img.shields.io/github/issues/Bruno-hub19/Marvel-comics-app?color=29C872&style=for-the-badge)
-![Badge](https://img.shields.io/github/license/Bruno-hub19/Marvel-comics-app?color=29C872&style=for-the-badge)
+![Badge](https://img.shields.io/github/languages/top/Bruno-hub19/Marvel-comics-app?color=8f3335&logo=typescript&logoColor=blue&style=for-the-badge)
+![Badge](https://img.shields.io/github/repo-size/Bruno-hub19/Marvel-comics-app?color=8f3335&logo=github&logoColor=black&style=for-the-badge)
+![Badge](https://img.shields.io/github/issues/Bruno-hub19/Marvel-comics-app?color=8f3335&style=for-the-badge)
+![Badge](https://img.shields.io/github/license/Bruno-hub19/Marvel-comics-app?color=8f3335&style=for-the-badge)
 
 </div>
 
